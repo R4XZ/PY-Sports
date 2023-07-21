@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Installation &#8212; PY-Sports 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<p>To use the PY-Sports Discord bot, you need to set up the necessary dependencies and configurations on your system. This guide will walk you through the steps required to get the bot up and running.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Python:</strong> PY-Sports requires Python 3.7 or later to function correctly. If you don’t have Python installed on your system, you can download the latest version from the official Python website: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
+<li><p><strong>pip:</strong> Pip is the package installer for Python. It should be installed automatically along with Python. You can verify its installation by opening a terminal/command prompt and running the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>If you see the pip version information, you’re good to go. If not, you can install pip using the instructions provided in the Python documentation.</p>
+</li>
+</ol>
+</section>
+<section id="installing-dependencies">
+<h2>Installing Dependencies<a class="headerlink" href="#installing-dependencies" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>http.client, discord, python-dotenv:</strong> PY-Sports relies on several external libraries, including <cite>http.client</cite> for API communication, <cite>discord</cite> for interfacing with the Discord platform, and <cite>python-dotenv</cite> for handling environment variables.</p>
+<p>To install these dependencies, open a terminal/command prompt and navigate to the root directory of the PY-Sports project. Then, run the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>This command will read the <cite>requirements.txt</cite> file, which lists all the required packages and their versions, and automatically install them on your system.</p>
+</li>
+</ol>
+</section>
+<section id="environment-configuration">
+<h2>Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Create .env File:</strong> PY-Sports uses environment variables to store sensitive information, such as your Discord bot token and the API key for api-football. These variables are read from a file named <cite>.env</cite> in the root directory of the project.</p>
+<p>Create a new file named <cite>.env</cite> in the root directory and open it in a text editor.</p>
+</li>
+<li><p><strong>Add Environment Variables:</strong> Inside the <cite>.env</cite> file, add the following lines and replace the placeholders with your actual Discord bot token and api-football API key:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">DISCORD_BOT_TOKEN</span><span class="o">=</span>your_discord_bot_token_here
+<span class="nv">API_FOOTBALL_KEY</span><span class="o">=</span>your_api_football_key_here
+</pre></div>
+</div>
+<p>Save the <cite>.env</cite> file after adding the variables.</p>
+</li>
+</ol>
+</section>
+<section id="running-the-bot">
+<h2>Running the Bot<a class="headerlink" href="#running-the-bot" title="Permalink to this heading">¶</a></h2>
+<p>With Python installed, dependencies installed, and the <cite>.env</cite> file set up with the required environment variables, you’re ready to run the PY-Sports Discord bot.</p>
+<ol class="arabic">
+<li><p>Open a terminal/command prompt and navigate to the root directory of the PY-Sports project.</p></li>
+<li><p>Run the following command to start the bot:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>bot.py
+</pre></div>
+</div>
+<p>Alternatively, if you have a start script like <cite>start.bat</cite>, you can use that to launch the bot.</p>
+</li>
+</ol>
+<p>The bot will now be active and ready to serve your Discord server with real-time sports statistics and information.</p>
+<p>Congratulations! You have successfully installed the PY-Sports Discord bot and are all set to explore its exciting features. If you encounter any issues during the installation process, feel free to reach out for assistance.</p>
+<p>If you have suggestions or want to contribute to the project, check out the “Contributing” section in the documentation for guidelines on how to get involved.</p>
+<p>Enjoy using PY-Sports and have fun exploring sports data on Discord!</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PY-Sports</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-dependencies">Installing Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-configuration">Environment Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-bot">Running the Bot</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, DwrldDev.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/installation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
