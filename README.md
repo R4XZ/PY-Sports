@@ -106,26 +106,8 @@ If you encounter any issues, have suggestions, or need assistance, please create
 
 PY-Sports is licensed under the MIT License. Feel free to use, modify, and distribute the bot following the terms of the license.
 
-# Screenshots
-
-![manUtdUpcoming](https://github.com/DwrldDev/PY-Sports/assets/116701630/5bb66557-b3e1-4b9b-b12f-4bd2ce417a4a)
+# Preview
 
 
-# Predictions
-
-![prediction](https://github.com/DwrldDev/PY-Sports/assets/116701630/24f8f5a7-3b07-4006-8abe-1619c4fa3bc6)
-
-
-
-# Live Results
-
-![liveresult](https://github.com/DwrldDev/PY-Sports/assets/116701630/0a600fb4-2cc0-4a5b-9b67-d5ec9887dafc)
-
-
-
-# Next 10 upcoming matches
-
-![upcoming](https://github.com/DwrldDev/PY-Sports/assets/116701630/97072ce0-91bd-45ab-87f9-247d223637fb)
-
-
+![ezgif-1-2186b8f46a](https://github.com/DwrldDev/PY-Sports/assets/116701630/302eb2b9-ff7b-4fc2-8513-f578c24741ea)
 
