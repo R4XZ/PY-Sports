@@ -695,10 +695,10 @@ async def display_manutd_topscorers(ctx):
         data = json.load(f)
 
     # Get the man utd players
-    man_city_players = [player for player in data["response"] if player["statistics"][0]["team"]["name"] == "Manchester United"]
+    man_utd_players = [player for player in data["response"] if player["statistics"][0]["team"]["name"] == "Manchester United"]
 
     # Sort the man utd players by number of goals scored (in descending order)
-    sorted_players = sorted(man_city_players, key=lambda x: x["statistics"][0]["goals"]["total"], reverse=True)
+    sorted_players = sorted(man_utd_players, key=lambda x: x["statistics"][0]["goals"]["total"], reverse=True)
 
     # Create an embed to display the top 3 goal scorers for man utd, along with their number of assists
     embed = discord.Embed(title="Top goal scorers for Manchester United", color=discord.Color.red())
@@ -738,10 +738,10 @@ async def display_manutd_topscorers(ctx):
         data = json.load(f)
 
     # Get the Liverpool  players
-    man_city_players = [player for player in data["response"] if player["statistics"][0]["team"]["name"] == "Liverpool"]
+    lfc_players = [player for player in data["response"] if player["statistics"][0]["team"]["name"] == "Liverpool"]
 
     # Sort the Liverpool players by number of goals scored (in descending order)
-    sorted_players = sorted(man_city_players, key=lambda x: x["statistics"][0]["goals"]["total"], reverse=True)
+    sorted_players = sorted(lfc_players, key=lambda x: x["statistics"][0]["goals"]["total"], reverse=True)
 
     # Create an embed to display the top 3 goal scorers for Liverpool, along with their number of assists
     embed = discord.Embed(title="Top goal scorers for Liverpool", color=discord.Color.red())
@@ -826,10 +826,10 @@ async def liv_injuries(ctx):
     injuries = data["response"]
 
     # Filter the injuries and suspensions for Liverpool
-    liv_injuries = [injury for injury in injuries if injury["team"]["name"] == "Manchester City"]
+    city_injuries = [injury for injury in injuries if injury["team"]["name"] == "Manchester City"]
 
     # Sort the injuries and suspensions by fixture date (in descending order)
-    sorted_injuries = sorted(liv_injuries, key=lambda x: x["fixture"]["date"], reverse=True)
+    sorted_injuries = sorted(city_injuries, key=lambda x: x["fixture"]["date"], reverse=True)
 
     # Create the embed message to send to Discord
     embed = discord.Embed(title="Most recent injuries and suspensions for Manchester City:")
@@ -938,10 +938,10 @@ async def liv_injuries(ctx):
     injuries = data["response"]
 
     # Filter the injuries and suspensions for Liverpool
-    liv_injuries = [injury for injury in injuries if injury["team"]["name"] == "Manchester United"]
+    utd_injuries = [injury for injury in injuries if injury["team"]["name"] == "Manchester United"]
 
     # Sort the injuries and suspensions by fixture date (in descending order)
-    sorted_injuries = sorted(liv_injuries, key=lambda x: x["fixture"]["date"], reverse=True)
+    sorted_injuries = sorted(utd_injuries, key=lambda x: x["fixture"]["date"], reverse=True)
 
     # Create the embed message to send to Discord
     embed = discord.Embed(title="Most recent injuries and suspensions for Manchester United:")
@@ -1126,6 +1126,104 @@ async def display_manutd_lineup(ctx):
 
 
 
+@bot.command(name='Livlive_XI', help='Displays the lineup for the next liverpool fixture')
+async def display_manutd_lineup(ctx):
+    conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
+
+    headers = {
+        'X-RapidAPI-Key': Key,
+        'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
+    }
+
+    # Get the next upcoming fixture ID for liverpool in the Premier League
+    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&next=1&timezone=UTC", headers=headers)
+
+    res = conn.getresponse()
+    fixture_data = res.read()
+
+    fixture_id = json.loads(fixture_data.decode("utf-8"))['response'][0]['fixture']['id']
+
+    # Get the lineup data for the upcoming fixture
+    conn.request(f"GET", f"/v3/fixtures/lineups?fixture={fixture_id}&team=33", headers=headers)
+
+    res = conn.getresponse()
+    lineup_data = res.read()
+
+    # Check if there is any response from the API
+    if not json.loads(lineup_data.decode("utf-8"))['response']:
+        await ctx.send("No lineup data available try again 20 minutes before the match.")
+    else:
+    # Parse the lineup data into a Discord embed
+        embed = discord.Embed(title='Manchester United Lineup', color=0xff0000)
+    for item in json.loads(lineup_data.decode("utf-8"))['response']:
+        embed.add_field(name='Team', value=item['team']['name'], inline=False)
+        embed.add_field(name='Coach', value=item['coach']['name'], inline=False)
+        embed.add_field(name='Formation', value=item['formation'], inline=False)
+        starting_xi_str = ''
+        for player in item['startXI']:
+            starting_xi_str += f"{player['player']['name']} ({player['player']['number']}) - {player['player']['pos']}\n"
+        embed.add_field(name='Starting XI', value=starting_xi_str, inline=False)
+        substitute_str = ''
+        for player in item['substitutes']:
+            substitute_str += f"{player['player']['name']} ({player['player']['number']}) - {player['player']['pos']}\n"
+        embed.add_field(name='Substitutes', value=substitute_str, inline=False)
+
+    # Send the embed as a message in Discord
+    await ctx.send(embed=embed)
+
+
+
+
+@bot.command(name='ManCity_XI', help='Displays the lineup for the next Man City fixture')
+async def display_manutd_lineup(ctx):
+    conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
+
+    headers = {
+        'X-RapidAPI-Key': Key,
+        'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
+    }
+
+    # Get the next upcoming fixture ID for Man City in the Premier League
+    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&next=1&timezone=UTC", headers=headers)
+
+    res = conn.getresponse()
+    fixture_data = res.read()
+
+    fixture_id = json.loads(fixture_data.decode("utf-8"))['response'][0]['fixture']['id']
+
+    # Get the lineup data for the upcoming fixture
+    conn.request(f"GET", f"/v3/fixtures/lineups?fixture={fixture_id}&team=33", headers=headers)
+
+    res = conn.getresponse()
+    lineup_data = res.read()
+
+    # Check if there is any response from the API
+    if not json.loads(lineup_data.decode("utf-8"))['response']:
+        await ctx.send("No lineup data available try again 20 minutes before the match.")
+    else:
+    # Parse the lineup data into a Discord embed
+        embed = discord.Embed(title='Manchester United Lineup', color=0xff0000)
+    for item in json.loads(lineup_data.decode("utf-8"))['response']:
+        embed.add_field(name='Team', value=item['team']['name'], inline=False)
+        embed.add_field(name='Coach', value=item['coach']['name'], inline=False)
+        embed.add_field(name='Formation', value=item['formation'], inline=False)
+        starting_xi_str = ''
+        for player in item['startXI']:
+            starting_xi_str += f"{player['player']['name']} ({player['player']['number']}) - {player['player']['pos']}\n"
+        embed.add_field(name='Starting XI', value=starting_xi_str, inline=False)
+        substitute_str = ''
+        for player in item['substitutes']:
+            substitute_str += f"{player['player']['name']} ({player['player']['number']}) - {player['player']['pos']}\n"
+        embed.add_field(name='Substitutes', value=substitute_str, inline=False)
+
+    # Send the embed as a message in Discord
+    await ctx.send(embed=embed)
+
+
+
+
+
+
 
 @bot.command(name='manutd_prediction', help='Displays the prediction for the next Manchester United fixture')
 async def predict(ctx, fixture_id=None):
@@ -1211,7 +1309,7 @@ async def predict(ctx, fixture_id=None):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    # Get the next upcoming fixture ID for Manchester United in the Premier League
+
     conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
@@ -1255,10 +1353,7 @@ async def predict(ctx, fixture_id=None):
         away_goals_for_home = prediction['teams']['away']['league']['goals']['for']['total']['home']
         away_goals_for_away = prediction['teams']['away']['league']['goals']['for']['total']['away']
 
-        # Example score prediction
-        predicted_home_goals = random.randint(0, 3)
-        predicted_away_goals = random.randint(0, 3)
-        predicted_score = f"{predicted_home_goals}-{predicted_away_goals}"
+
 
     
         embed = discord.Embed(title=f"{home_team} vs {away_team}", color=discord.Color.dark_red())
@@ -1270,7 +1365,6 @@ async def predict(ctx, fixture_id=None):
         embed.add_field(name=f"{home_team} Total Goals Scored", value=home_goals_for_total, inline=True)
         embed.add_field(name=f"{home_team} Goals Scored at Home", value=home_goals_for_home, inline=True)
         embed.add_field(name=f"{home_team} Goals Scored Away", value=home_goals_for_away, inline=True)
-        embed.add_field(name="Predicted Score", value=predicted_score, inline=False)
         embed.add_field(name=f"{away_team} Total Goals Scored", value=away_goals_for_total, inline=True)
         embed.add_field(name=f"{away_team} Goals Scored at Home", value=away_goals_for_home, inline=True)
         embed.add_field(name=f"{away_team} Goals Scored Away", value=away_goals_for_away, inline=True)
@@ -1294,7 +1388,7 @@ async def predict(ctx, fixture_id=None):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    # Get the next upcoming fixture ID for Manchester United in the Premier League
+
     conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
