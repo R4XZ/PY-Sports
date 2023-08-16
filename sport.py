@@ -1030,53 +1030,6 @@ async def upcoming_fixture(ctx):
 
 
 
-@bot.command(name='manutd_XI', help='Displays the previous starting XI')
-async def display_manutd_lineup(ctx):
-    conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
-
-    headers = {
-        'X-RapidAPI-Key': Key,
-        'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
-    }
-
-    # Get the next upcoming fixture ID for Manchester United in the Premier League
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&last=1&timezone=UTC", headers=headers)
-
-    res = conn.getresponse()
-    fixture_data = res.read()
-
-    fixture_id = json.loads(fixture_data.decode("utf-8"))['response'][0]['fixture']['id']
-
-    # Get the lineup data for the upcoming fixture
-    conn.request(f"GET", f"/v3/fixtures/lineups?fixture={fixture_id}&team=33", headers=headers)
-
-    res = conn.getresponse()
-    lineup_data = res.read()
-
-
-
-    # Parse the lineup data into a Discord embed
-    embed = discord.Embed(title='Manchester United Lineup', color=0xff0000)
-    for item in json.loads(lineup_data.decode("utf-8"))['response']:
-        embed.add_field(name='Team', value=item['team']['name'], inline=False)
-        embed.add_field(name='Coach', value=item['coach']['name'], inline=False)
-        embed.add_field(name='Formation', value=item['formation'], inline=False)
-        starting_xi_str = ''
-        for player in item['startXI']:
-            starting_xi_str += f"{player['player']['name']} ({player['player']['number']}) - {player['player']['pos']}\n"
-        embed.add_field(name='Starting XI', value=starting_xi_str, inline=False)
-        substitute_str = ''
-        for player in item['substitutes']:
-            substitute_str += f"{player['player']['name']} ({player['player']['number']}) - {player['player']['pos']}\n"
-        embed.add_field(name='Substitutes', value=substitute_str, inline=False)
-
-    # Send the embed as a message in Discord
-    await ctx.send(embed=embed)
-
-
-
-
-
 @bot.command(name='manutdlive_XI', help='Displays the lineup for the next Manchester United fixture')
 async def display_manutd_lineup(ctx):
     conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
