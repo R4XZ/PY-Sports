@@ -571,49 +571,6 @@ async def link(ctx):
 
 
 
-@bot.command(name='manutd_lineup', help='Displays the lineup for the previous Manchester United match')
-async def get_lineup(ctx):
-    conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
-
-    # Set the headers
-    headers = {
-        'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
-        'x-rapidapi-key': Key,
-        'Content-Type': 'application/json'
-    }
-
-    # Get the latest fixture for Manchester United
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&last=2", headers=headers)
-    response = conn.getresponse()
-    data = json.loads(response.read().decode('utf-8'))
-
-    # Check if there is at least one previous match
-    if len(data['response']) < 2:
-        await ctx.send("No previous matches found.")
-        return
-
-    # Get the details for the previous match
-    previous_fixture = data['response'][-2]
-    home_team = previous_fixture['teams']['home']['name']
-    away_team = previous_fixture['teams']['away']['name']
-
-    # Check if the previous match has lineups available
-    if 'lineups' not in previous_fixture:
-        await ctx.send(f"No lineups found for the previous match between {home_team} and {away_team}\n please note Lineups are only available between 20 and 40 minutes before the fixture.")
-        return
-
-    # Get the lineups for the previous match
-    home_lineup = previous_fixture['lineups']['home']['startXI']
-    away_lineup = previous_fixture['lineups']['away']['startXI']
-
-    # Create an embed message with the lineups
-    em = discord.Embed(title=f"Lineups for the previous match between {home_team} and {away_team}.", color=ctx.author.color)
-    em.add_field(name=f"{home_team} lineup", value='\n'.join([player['player'] for player in home_lineup]), inline=True)
-    em.add_field(name=f"{away_team} lineup", value='\n'.join([player['player'] for player in away_lineup]), inline=True)
-
-    await ctx.send(embed=em)
-
-
 
 
 @bot.command(name='manutd_stats', help='Displays Manchester United statistics')
