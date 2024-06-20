@@ -85,7 +85,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&next=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&next=10", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)["response"]
@@ -115,7 +115,7 @@ async def get_score_matches(ctx):
         'x-rapidapi-key': Key,
         'Content-Type': 'application/json'
         }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&last=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&last=10", headers=headers)
     response  = conn.getresponse()
   
     data = json.loads(response.read().decode('utf-8'))
@@ -146,7 +146,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=45&season=2023&next=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=45&season=2024&next=10", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)["response"]
@@ -171,7 +171,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=2&season=2023&next=20", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=2&season=2024&next=20", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)["response"]
@@ -195,7 +195,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=3&season=2023&next=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=3&season=2024&next=10", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)["response"]
@@ -223,7 +223,7 @@ async def get_score_matches(ctx):
         'x-rapidapi-key': Key,
         'Content-Type': 'application/json'
         }
-    conn.request("GET", "/v3/fixtures?league=2&season=2023&last=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=2&season=2024&last=10", headers=headers)
     response  = conn.getresponse()
   
     data = json.loads(response.read().decode('utf-8'))
@@ -254,7 +254,7 @@ async def get_score_matches(ctx):
         'x-rapidapi-key': Key,
         'Content-Type': 'application/json'
         }
-    conn.request("GET", "/v3/fixtures?league=45&season=2023&last=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=45&season=2024&last=10", headers=headers)
     response  = conn.getresponse()
   
     data = json.loads(response.read().decode('utf-8'))
@@ -283,7 +283,7 @@ async def pl_table(ctx):
         'x-rapidapi-host': "api-football-v1.p.rapidapi.com",
         'x-rapidapi-key': Key
         }
-    connection.request("GET", "/v3/standings?season=2023&league=39", headers=headers)
+    connection.request("GET", "/v3/standings?season=2024&league=39", headers=headers)
     response = connection.getresponse()
     data = response.read()
 
@@ -333,7 +333,7 @@ async def get_score_matches(ctx):
     }
 
     # Get the latest fixture for Manchester United
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&last=1", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=33&last=1", headers=headers)
     response = conn.getresponse()
     data = json.loads(response.read().decode('utf-8'))
     fixture = data['response'][0]
@@ -358,7 +358,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&next=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=33&next=10", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)["response"]
@@ -388,7 +388,7 @@ async def get_score_matches(ctx):
         'x-rapidapi-key': Key,
         'Content-Type': 'application/json'
         }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&last=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=33&last=10", headers=headers)
     response  = conn.getresponse()
   
     data = json.loads(response.read().decode('utf-8'))
@@ -415,7 +415,7 @@ async def get_score_matches(ctx):
 async def manu_stats(ctx):
     url = "https://api-football-v1.p.rapidapi.com/v3/teams/statistics"
 
-    querystring = {"league":"39","team":"33","season":"2023"}
+    querystring = {"league":"39","team":"33","season":"2024"}
 
     headers = {
         "X-RapidAPI-Key": Key,
@@ -475,7 +475,7 @@ async def display_manutd_topscorers(ctx):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v3/players/topscorers?league=39&season=2023", headers=headers)
+    conn.request("GET", "/v3/players/topscorers?league=39&season=2024", headers=headers)
 
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
@@ -519,7 +519,7 @@ async def liv_injuries(ctx):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v3/injuries?league=39&season=2023", headers=headers)
+    conn.request("GET", "/v3/injuries?league=39&season=2024", headers=headers)
 
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
@@ -573,7 +573,7 @@ async def upcoming_fixture(ctx):
     }
 
     # Get the next upcoming fixture ID for Manchester United in the Premier League
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=33&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
@@ -639,7 +639,7 @@ async def display_manutd_lineup(ctx):
     }
 
     # Get the next upcoming fixture ID for Manchester United in the Premier League
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=33&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
@@ -688,7 +688,7 @@ async def predict(ctx, fixture_id=None):
     }
 
     # Get the next upcoming fixture ID for Manchester United in the Premier League
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=33&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=33&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
@@ -786,7 +786,7 @@ async def get_score_matches(ctx):
     }
 
     # Get the latest fixture for Manchester City
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&last=1", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=50&last=1", headers=headers)
     response = conn.getresponse()
     data = json.loads(response.read().decode('utf-8'))
     fixture = data['response'][0]
@@ -811,7 +811,7 @@ async def get_score_matches(ctx):
         'x-rapidapi-key': Key,
         'Content-Type': 'application/json'
         }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&last=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=50&last=10", headers=headers)
     response  = conn.getresponse()
   
     data = json.loads(response.read().decode('utf-8'))
@@ -839,7 +839,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&next=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=50&next=10", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)['response']
@@ -869,7 +869,7 @@ async def display_manutd_topscorers(ctx):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v3/players/topscorers?league=39&season=2023", headers=headers)
+    conn.request("GET", "/v3/players/topscorers?league=39&season=2024", headers=headers)
 
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
@@ -911,7 +911,7 @@ async def liv_injuries(ctx):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v3/injuries?league=39&season=2023", headers=headers)
+    conn.request("GET", "/v3/injuries?league=39&season=2024", headers=headers)
 
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
@@ -967,7 +967,7 @@ async def predict(ctx, fixture_id=None):
     }
 
 
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=50&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
@@ -1043,7 +1043,7 @@ async def display_manutd_lineup(ctx):
     }
 
     # Get the next upcoming fixture ID for Man City in the Premier League
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=50&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=50&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
@@ -1098,7 +1098,7 @@ async def get_score_matches(ctx):
     }
 
     # Get the latest fixture for Manchester United
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&last=1", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=40&last=1", headers=headers)
     response = conn.getresponse()
     data = json.loads(response.read().decode('utf-8'))
     fixture = data['response'][0]
@@ -1123,7 +1123,7 @@ async def get_score_matches(ctx):
         'x-rapidapi-key': Key,
         'Content-Type': 'application/json'
         }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&last=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=40&last=10", headers=headers)
     response  = conn.getresponse()
   
     data = json.loads(response.read().decode('utf-8'))
@@ -1151,7 +1151,7 @@ async def get_Upcoming_matches(ctx):
         "X-RapidAPI-Key": Key,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
     }
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&next=10", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=40&next=10", headers=headers)
     res = conn.getresponse()
     data = res.read().decode("utf-8")
     matches = json.loads(data)['response']
@@ -1178,7 +1178,7 @@ async def display_manutd_topscorers(ctx):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v3/players/topscorers?league=39&season=2023", headers=headers)
+    conn.request("GET", "/v3/players/topscorers?league=39&season=2024", headers=headers)
 
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
@@ -1227,7 +1227,7 @@ async def liv_injuries(ctx):
         'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
     }
 
-    conn.request("GET", "/v3/injuries?league=39&season=2023", headers=headers)
+    conn.request("GET", "/v3/injuries?league=39&season=2024", headers=headers)
 
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
@@ -1286,7 +1286,7 @@ async def display_manutd_lineup(ctx):
     }
 
     # Get the next upcoming fixture ID for liverpool in the Premier League
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=40&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
@@ -1344,7 +1344,7 @@ async def predict(ctx, fixture_id=None):
     }
 
 
-    conn.request("GET", "/v3/fixtures?league=39&season=2023&team=40&next=1&timezone=UTC", headers=headers)
+    conn.request("GET", "/v3/fixtures?league=39&season=2024&team=40&next=1&timezone=UTC", headers=headers)
 
     res = conn.getresponse()
     fixture_data = res.read()
