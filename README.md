@@ -91,7 +91,7 @@ Easy Management:
 
 JSON files are human-readable and straightforward to manage. Developers can easily inspect the cached data and ensure its accuracy, as well as manually refresh the cache if needed.
 
-# 2023 Team id's 
+# 2024 Team id's updated 06/20/2024
 if you want to change the ids of premier league teams 
 ```
 Team Name: Manchester United, Team ID: 33
@@ -100,9 +100,10 @@ Team Name: Bournemouth, Team ID: 35
 Team Name: Fulham, Team ID: 36
 Team Name: Wolves, Team ID: 39
 Team Name: Liverpool, Team ID: 40
+Team Name: Southampton, Team ID: 41
 Team Name: Arsenal, Team ID: 42
-Team Name: Burnley, Team ID: 44
 Team Name: Everton, Team ID: 45
+Team Name: Leicester, Team ID: 46
 Team Name: Tottenham, Team ID: 47
 Team Name: West Ham, Team ID: 48
 Team Name: Chelsea, Team ID: 49
@@ -110,10 +111,9 @@ Team Name: Manchester City, Team ID: 50
 Team Name: Brighton, Team ID: 51
 Team Name: Crystal Palace, Team ID: 52
 Team Name: Brentford, Team ID: 55
-Team Name: Sheffield Utd, Team ID: 62
+Team Name: Ipswich, Team ID: 57
 Team Name: Nottingham Forest, Team ID: 65
 Team Name: Aston Villa, Team ID: 66
-Team Name: Luton, Team ID: 1359
 ```
 
 
