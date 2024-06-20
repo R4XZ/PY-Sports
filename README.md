@@ -23,15 +23,20 @@ Optimized data retrieval using local JSON caching for improved performance.
 PY-Sports is fully open-source under the MIT License, allowing the community to contribute and customize the bot.
 
 
-# New features for 2023
+# New features for 2024
+Implemented new functions so we can use commands with the team id. also removed some code. user can now call ```!premid``` to get the id's of every prem team then use the command below to view upcoming fixtures.
 
-Will there be more teams Implemented into PY-Sports? The answer is YES!!
+EXAMPLE:
+```
+!matches 33 - Manchester United
+!matches 50 - Manchester City
+```
+please note that the ```!starting11``` command will work the same way to view starting 11 players with each time via id (20 minutes or so before match)
 
-- [x] updated for the 23/24 season
-- [x] Implemented LiverpoolFC
-- [x] Implemented ManchesterCity
-- [x] Implemented FA Cup
-- [x] Implemented UEFA Europa
+```
+!starting11 33 - Manchester United
+!starting11 50 - Manchester City
+```
 
 # How I Started PY-Sports
 
